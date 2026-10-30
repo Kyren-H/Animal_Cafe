@@ -21,13 +21,14 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 	var closed = {};
 	
 	// Initialization of the starting node.
-	var starting_node = new AStarNode([start_x, start_y], noone, AStarNode.heuristic_helper(start_x, goal_x, start_y, goal_y), 0);
+	var starting_node = new AStarNode([start_x, start_y], noone, heuristic_helper(start_x, goal_x, start_y, goal_y), 0);
 	ds_priority_add(open, starting_node, starting_node.node.F); // Note -- ds_priority's third parameter is a priority. F is used because A* searches minimum F nodes.
 	var strkey = string(starting_node.node.Coordinates[0]) + "_" + string(starting_node.node.Coordinates[1]);
 	lookup[$ strkey] = starting_node;
 	
 	// A* will continue searching until it runs out of options or finds the goal.
 	while (ds_priority_size(open) > 0) {
+		show_debug_message("--- While!");
 		// Cache current cell (node with minimum F), remove it from the open lists, and add it to the closed list.
 		var current = ds_priority_find_min(open);
 		ds_priority_delete_min(open);
@@ -39,27 +40,32 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 		for (var i = 0; i <= 3; i++) {
 			// Assemble children nodes (next steps). Newcoords and Newheur are only present because the code is too long for a single line.
 			var newcoords = [current.node.Coordinates[0] + directions[i].xx, current.node.Coordinates[1] + directions[i].yy];
-			var newheur = AStarNode.heuristic_helper(newcoords[0], goal_x, newcoords[1], goal_y);
+			var newheur = heuristic_helper(newcoords[0], goal_x, newcoords[1], goal_y);
 			var newnode = new AStarNode([newcoords[0], newcoords[1]], current, newheur, current.node.PathCost + 32);
 			
 			// If this child node is the goal, cease search and trace the path backwards.
 			if (newnode.node.Coordinates[0] == goal_x and newnode.node.Coordinates[1] == goal_y) {
+				show_debug_message("--- GOAL!");
 				ds_priority_destroy(open);
 				return Trace(newnode);
 			} else {
 				// Checks; if this node is already in the open list but doesn't have a more optimistic F, do not add it.
-				strkey = string(newnode.Coordinates[0]) + "_" + string(newnode.Coordinates[1]);
+				strkey = string(newnode.node.Coordinates[0]) + "_" + string(newnode.node.Coordinates[1]);
 				var possible_dupes = [lookup[$ strkey], closed[$ strkey]]
 				if (possible_dupes[0] != undefined and possible_dupes[0].node.F < newnode.node.F) {
+					show_debug_message("--- Dupe worse in open!");
 					continue;
 				// If this node is already in the closed list and doesn't have a more optimistic F this tiem, do not add it.
 				} else if (possible_dupes[1] != undefined and possible_dupes[1].node.F < newnode.node.F) {
+					show_debug_message("--- Dupe worse in close!");
 					continue;
 				} else {
 					// Otherwise, so long as it is valid, add it.
 					if (!IsBlocked(newnode.node.Coordinates[0], newnode.node.Coordinates[1]) and IsValid(newnode.node.Coordinates[0], newnode.node.Coordinates[1])) {
+						show_debug_message("--- Adding node!");
 						ds_priority_add(open, newnode, newnode.node.F);
 					} else {
+						show_debug_message("--- Wasn't Valid!");
 						continue;
 					}
 				}
@@ -67,6 +73,7 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 		}
 	}
 	// If we reach this point, the objective was unreachable.
+	show_debug_message("--- FUCK!");
 	ds_priority_destroy(open);
 	return undefined;
 }
@@ -85,12 +92,12 @@ function AStarNode(coords, parentnode, heuristic, pathcost) constructor {
 		// F = the total pathing cost moving through a node. Smaller is better.
 		"F":(heuristic + pathcost)
 	};
-	
-	// Shorthand heuristic calculator. I've copy-pasted more stringify code than I've used this, so... efficiency.
-	static heuristic_helper = function (current_x, goal_x, current_y, goal_y) {
-		return abs(current_x - goal_x) + abs(current_y - goal_y);
-	} 
 }
+
+	// Shorthand heuristic calculator. I've copy-pasted more stringify code than I've used this, so... efficiency.
+function heuristic_helper(current_x, goal_x, current_y, goal_y) {
+	return abs(current_x - goal_x) + abs(current_y - goal_y);
+} 
 
 /// @desc Compares coordinates against the coordinates known to be occupied by blocking furniture. Returns true if the coordinates are blocked.
 /// @param _x X-coordinate to look at.
@@ -107,7 +114,7 @@ function IsValid(_x, _y) {
 	
 	var data = tilemap_get_at_pixel(tilemap, _x, _y);
 	// 9 is the only proper floor tile in the present tileset. Can alter this to a list check if we add more floors.
-	return ((data & tile_index_mask) == 9);
+	return ((data & tile_index_mask) == 8);
 }
 
 /// @desc AStar result function; traces a walkable path from the goal back to the start, reverses the order, and returns a walkable path.
@@ -117,8 +124,9 @@ function Trace(astarnode) {
 	// Only adds coordinates to Path since AStarNode structs are heavier than strings in a list. That and we don't need more than the coordinates.
 	while (astarnode != noone) {
 		array_push(path, string(astarnode.node.Coordinates[0]) + "_" + string(astarnode.node.Coordinates[1]));
+		layer_sprite_create("TESTING2" ,astarnode.node.Coordinates[0], astarnode.node.Coordinates[1], spr_PATHDISPLAY);
 		astarnode = astarnode.node.Parent;
 	}
-	array_reverse(path);
+	array_reverse_ext(path);
 	return path;
 }

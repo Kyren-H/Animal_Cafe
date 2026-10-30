@@ -5,14 +5,14 @@ function CoordinateKeyDictionary() constructor {
 	/// @desc Set a value in the dictionary.
 	static set = function (_x, _y, value) {
 		var key = keyify(_x, _y);
-		data[$ key] = value;
+		contents[$ key] = value;
 	}
 	
 	/// @desc Get a value in the dictionary.
 	static get = function (_x, _y) {
 		try {
 			var key = keyify(_x, _y);
-			return data[$ key];
+			return contents[$ key];
 		} catch (exception) {
 			show_debug_message("No such object.");
 		}
@@ -21,8 +21,8 @@ function CoordinateKeyDictionary() constructor {
 	/// @desc Remove a value in the dictionary.
 	static remove = function (_x, _y) {
 		var key = keyify(_x, _y);
-		if (struct_exists(data, key)) {
-			struct_remove(data, key);
+		if (struct_exists(contents, key)) {
+			struct_remove(contents, key);
 		} else {
 			show_debug_message("No such object.");
 		}

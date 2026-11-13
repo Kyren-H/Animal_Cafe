@@ -19,6 +19,7 @@
   "height":80,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"4e10bd8b-a344-4e03-b1a6-ffe5b5bf22f0","blendMode":3,"displayName":"Layer 1","isLocked":false,"name":"4e10bd8b-a344-4e03-b1a6-ffe5b5bf22f0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"3942c1dc-1763-47b3-9f47-e3c08d5a4cd7","blendMode":0,"displayName":"default","isLocked":false,"name":"3942c1dc-1763-47b3-9f47-e3c08d5a4cd7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"tempTable",

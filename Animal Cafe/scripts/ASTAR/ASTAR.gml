@@ -28,7 +28,7 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 	
 	// A* will continue searching until it runs out of options or finds the goal.
 	while (ds_priority_size(open) > 0) {
-		show_debug_message("--- While!");
+		//show_debug_message("--- While!");
 		// Cache current cell (node with minimum F), remove it from the open lists, and add it to the closed list.
 		var current = ds_priority_find_min(open);
 		ds_priority_delete_min(open);
@@ -45,7 +45,7 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 			
 			// If this child node is the goal, cease search and trace the path backwards.
 			if (newnode.node.Coordinates[0] == goal_x and newnode.node.Coordinates[1] == goal_y) {
-				show_debug_message("--- GOAL!");
+				//show_debug_message("--- GOAL!");
 				ds_priority_destroy(open);
 				return Trace(newnode);
 			} else {
@@ -53,19 +53,19 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 				strkey = string(newnode.node.Coordinates[0]) + "_" + string(newnode.node.Coordinates[1]);
 				var possible_dupes = [lookup[$ strkey], closed[$ strkey]]
 				if (possible_dupes[0] != undefined and possible_dupes[0].node.F < newnode.node.F) {
-					show_debug_message("--- Dupe worse in open!");
+					//show_debug_message("--- Dupe worse in open!");
 					continue;
 				// If this node is already in the closed list and doesn't have a more optimistic F this tiem, do not add it.
 				} else if (possible_dupes[1] != undefined and possible_dupes[1].node.F < newnode.node.F) {
-					show_debug_message("--- Dupe worse in close!");
+					//show_debug_message("--- Dupe worse in close!");
 					continue;
 				} else {
 					// Otherwise, so long as it is valid, add it.
 					if (!IsBlocked(newnode.node.Coordinates[0], newnode.node.Coordinates[1]) and IsValid(newnode.node.Coordinates[0], newnode.node.Coordinates[1])) {
-						show_debug_message("--- Adding node!");
+						//show_debug_message("--- Adding node!");
 						ds_priority_add(open, newnode, newnode.node.F);
 					} else {
-						show_debug_message("--- Wasn't Valid!");
+						//show_debug_message("--- Wasn't Valid!");
 						continue;
 					}
 				}
@@ -73,7 +73,7 @@ function aStar(start_x, start_y, goal_x, goal_y) {
 		}
 	}
 	// If we reach this point, the objective was unreachable.
-	show_debug_message("--- FUCK!");
+	//show_debug_message("--- FUCK!");
 	ds_priority_destroy(open);
 	return undefined;
 }
@@ -124,7 +124,7 @@ function Trace(astarnode) {
 	// Only adds coordinates to Path since AStarNode structs are heavier than strings in a list. That and we don't need more than the coordinates.
 	while (astarnode != noone) {
 		array_push(path, string(astarnode.node.Coordinates[0]) + "_" + string(astarnode.node.Coordinates[1]));
-		layer_sprite_create("TESTING2" ,astarnode.node.Coordinates[0], astarnode.node.Coordinates[1], spr_PATHDISPLAY);
+		//layer_sprite_create("TESTING2" ,astarnode.node.Coordinates[0], astarnode.node.Coordinates[1], spr_PATHDISPLAY);
 		astarnode = astarnode.node.Parent;
 	}
 	array_reverse_ext(path);

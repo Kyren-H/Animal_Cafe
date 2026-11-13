@@ -51,6 +51,6 @@ AssignTable = function(_x, _y, pointer) {
 			}
 		}
 	}
-	show_debug_message("--- Sequence Ended.")
-	show_debug_message(string(tables));
+	//show_debug_message("--- Sequence Ended.")
+	//show_debug_message(string(tables));
 }

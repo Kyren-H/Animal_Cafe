@@ -7,6 +7,6 @@ if (is_day) {
 		alarm[0] = cooldown;
 		rampup = 0;
 	} else {
-		rampup -= 1;
+		rampup -= 0.1;
 	}
 }

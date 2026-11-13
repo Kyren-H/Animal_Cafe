@@ -1,3 +1,5 @@
+depth = -x;
+
 var _y = bbox_top + px_overlap;
 var _x = bbox_left;
 

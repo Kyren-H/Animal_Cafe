@@ -16,7 +16,7 @@ if (distance < 1) {
 		array_delete(path, 0, 1);
 	} else {
 		if (is_method(callback)) {
-			callback();
+			callback(parent);
 		}
 		instance_destroy();
 	}

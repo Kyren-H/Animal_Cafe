@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"testing_ASTARTARGET",
+  "%Name":"obj_koissant",
   "eventList":[],
   "managed":true,
-  "name":"testing_ASTARTARGET",
+  "name":"obj_koissant",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"type_food",
+    "path":"objects/type_food/type_food.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_TESTDISPLAY",
-    "path":"sprites/spr_TESTDISPLAY/spr_TESTDISPLAY.yy",
+    "name":"spr_Koissant",
+    "path":"sprites/spr_Koissant/spr_Koissant.yy",
   },
   "spriteMaskId":null,
   "visible":true,

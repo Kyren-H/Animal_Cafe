@@ -40,6 +40,7 @@
     {"id":{"name":"obj_cagel_machine","path":"objects/obj_cagel_machine/obj_cagel_machine.yy",},},
     {"id":{"name":"obj_cagel","path":"objects/obj_cagel/obj_cagel.yy",},},
     {"id":{"name":"obj_chair","path":"objects/obj_chair/obj_chair.yy",},},
+    {"id":{"name":"obj_counter","path":"objects/obj_counter/obj_counter.yy",},},
     {"id":{"name":"obj_customer","path":"objects/obj_customer/obj_customer.yy",},},
     {"id":{"name":"obj_entrance","path":"objects/obj_entrance/obj_entrance.yy",},},
     {"id":{"name":"obj_koissant_machine","path":"objects/obj_koissant_machine/obj_koissant_machine.yy",},},
@@ -52,6 +53,7 @@
     {"id":{"name":"util_agent_astar_stepper","path":"objects/util_agent_astar_stepper/util_agent_astar_stepper.yy",},},
     {"id":{"name":"util_navigator","path":"objects/util_navigator/util_navigator.yy",},},
     {"id":{"name":"util_timer","path":"objects/util_timer/util_timer.yy",},},
+    {"id":{"name":"ENDROOM","path":"rooms/ENDROOM/ENDROOM.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"ASTAR","path":"scripts/ASTAR/ASTAR.yy",},},
     {"id":{"name":"CoordinateKeyDictionary","path":"scripts/CoordinateKeyDictionary/CoordinateKeyDictionary.yy",},},
@@ -62,6 +64,7 @@
     {"id":{"name":"examplePlayer","path":"sprites/examplePlayer/examplePlayer.yy",},},
     {"id":{"name":"spr_cagel_machine","path":"sprites/spr_cagel_machine/spr_cagel_machine.yy",},},
     {"id":{"name":"spr_Cagel","path":"sprites/spr_Cagel/spr_Cagel.yy",},},
+    {"id":{"name":"spr_counter","path":"sprites/spr_counter/spr_counter.yy",},},
     {"id":{"name":"spr_kaching","path":"sprites/spr_kaching/spr_kaching.yy",},},
     {"id":{"name":"spr_koissant_machine","path":"sprites/spr_koissant_machine/spr_koissant_machine.yy",},},
     {"id":{"name":"spr_Koissant","path":"sprites/spr_Koissant/spr_Koissant.yy",},},
@@ -76,6 +79,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"ENDROOM","path":"rooms/ENDROOM/ENDROOM.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

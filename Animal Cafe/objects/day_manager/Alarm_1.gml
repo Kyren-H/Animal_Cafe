@@ -1,4 +1,4 @@
-var cltables = struct_get_names(closed_tables)
+var cltables = struct_get_names(closed_tables);
 if (array_length(cltables) > 0) {
 	for (var i = 0; i < array_length(cltables); i++) {
 		
@@ -17,4 +17,6 @@ if (array_length(cltables) > 0) {
 	}
 }
 
-alarm[1] = 60;
+if (array_length(cltables) > 0) {
+	alarm[1] = 60;
+}

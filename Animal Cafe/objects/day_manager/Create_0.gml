@@ -10,6 +10,7 @@ open_tables = noone;
 closed_tables = {};
 
 alarm[1] = 60;
+alarm[2] = 120;
 
 CustomerOrder = function(pointer) {
 	pointer.order = struct_get_names(global.Menu)[irandom(array_length(struct_get_names(global.Menu)) - 1)];
@@ -25,7 +26,8 @@ InitializeTables = function() {
 }
 
 ReturnTable = function(key) {
-	delete closed_tables[$ key];
+	show_debug_message("RETURNED");
+	struct_remove(closed_tables, key);
 	
 	array_push(open_tables, key);
 }
@@ -43,6 +45,10 @@ CreateTable = function() {
 			customer = instance_create_layer(convertToGrid(obj_entrance.x), convertToGrid(obj_entrance.y - CELLSIZE), "Customers", obj_customer);
 			customer.MoveTo(floor_manager.tables[$ table_id][i], CustomerOrder);
 			array_push(closed_tables[$ table_id], customer);
+		}
+		
+		if (alarm[1] <= 0) {
+			alarm[1] = 60;
 		}
 		
 		array_delete(open_tables, table_index, 1);

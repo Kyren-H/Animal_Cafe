@@ -37,6 +37,7 @@
   "resources":[
     {"id":{"name":"day_manager","path":"objects/day_manager/day_manager.yy",},},
     {"id":{"name":"floor_manager","path":"objects/floor_manager/floor_manager.yy",},},
+    {"id":{"name":"money_end","path":"objects/money_end/money_end.yy",},},
     {"id":{"name":"obj_cagel_machine","path":"objects/obj_cagel_machine/obj_cagel_machine.yy",},},
     {"id":{"name":"obj_cagel","path":"objects/obj_cagel/obj_cagel.yy",},},
     {"id":{"name":"obj_chair","path":"objects/obj_chair/obj_chair.yy",},},

@@ -1,4 +1,4 @@
-depth = -x - 8;
+depth = -bbox_bottom - 8;
 
 // Input
 var ix = keyboard_check(vk_right) - keyboard_check(vk_left);

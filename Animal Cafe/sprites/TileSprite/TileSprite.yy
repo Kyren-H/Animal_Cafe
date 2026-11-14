@@ -3,7 +3,7 @@
   "%Name":"TileSprite",
   "bboxMode":0,
   "bbox_bottom":63,
-  "bbox_left":32,
+  "bbox_left":0,
   "bbox_right":191,
   "bbox_top":0,
   "collisionKind":1,

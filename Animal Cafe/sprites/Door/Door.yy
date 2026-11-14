@@ -19,8 +19,9 @@
   "height":64,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"c289904a-167d-4526-9430-7aeb0df52c4c","blendMode":3,"displayName":"Layer 2","isLocked":false,"name":"c289904a-167d-4526-9430-7aeb0df52c4c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"26fb68f0-d752-40af-9bd7-4f8835b3d3ca","blendMode":0,"displayName":"default","isLocked":false,"name":"26fb68f0-d752-40af-9bd7-4f8835b3d3ca","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"0408f485-4cf4-4e59-aa61-be31939e4b1b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"0408f485-4cf4-4e59-aa61-be31939e4b1b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"0408f485-4cf4-4e59-aa61-be31939e4b1b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"0408f485-4cf4-4e59-aa61-be31939e4b1b","opacity":35.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"Door",
   "nineSlice":null,

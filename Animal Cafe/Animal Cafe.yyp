@@ -35,6 +35,8 @@
   },
   "name":"Animal Cafe",
   "resources":[
+    {"id":{"name":"font_title","path":"fonts/font_title/font_title.yy",},},
+    {"id":{"name":"font_ui","path":"fonts/font_ui/font_ui.yy",},},
     {"id":{"name":"day_manager","path":"objects/day_manager/day_manager.yy",},},
     {"id":{"name":"floor_manager","path":"objects/floor_manager/floor_manager.yy",},},
     {"id":{"name":"money_end","path":"objects/money_end/money_end.yy",},},
@@ -44,6 +46,7 @@
     {"id":{"name":"obj_counter","path":"objects/obj_counter/obj_counter.yy",},},
     {"id":{"name":"obj_customer","path":"objects/obj_customer/obj_customer.yy",},},
     {"id":{"name":"obj_entrance","path":"objects/obj_entrance/obj_entrance.yy",},},
+    {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
     {"id":{"name":"obj_koissant_machine","path":"objects/obj_koissant_machine/obj_koissant_machine.yy",},},
     {"id":{"name":"obj_koissant","path":"objects/obj_koissant/obj_koissant.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
